@@ -9,8 +9,12 @@ const Scene = dynamic(() => import('@/components/canvas/Scene'), { ssr: true })
 export default function App({ Component, pageProps = { title: 'index' } }) {
   const ref = useRef()
   const [action, setAction] = useState(8)
+  const [skin, setSkin] = useState("/stacy.jpg")
+
   pageProps.action = action
   pageProps.setAction = setAction
+  pageProps.skin = skin
+  pageProps.setSkin = setSkin
   return (
     <>
       <Header title={pageProps.title} />

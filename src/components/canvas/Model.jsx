@@ -14,7 +14,7 @@ import { easing } from "maath"
 export default function Model(props) {
     const halo = useRef()
     // Fetch model and a separate texture
-    const texture = useTexture("/stacy.jpg")
+    const texture = useTexture(props.skin)
     const { nodes, animations } = useGLTF("/stacy.glb")
     // Extract animation actions
     const { ref, actions, names } = useAnimations(animations)

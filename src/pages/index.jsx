@@ -31,10 +31,18 @@ export default function Page(props) {
     "golf",
     "idle"
   ]
+  const skins = {
+    "human": "/stacy.jpg",
+    "alien": "/test.jpg"
+  }
   return (
     <><div>{names.map((nm, i) => {
-      return <span key={"nsp_" + i} style={{ margin: "3px" }}><button style={{ color: props.action == i ? "green" : "" }} type='button' key={"bm_" + i} onClick={() => { props.setAction(i) }}>{nm}</button></span>
-    })}</div></>
+      return <button style={{ color: props.action == i ? "green" : "", border: "0.5px solid green", borderRadius: "10%", margin: "5px" }} type='button' key={"bm_" + i} onClick={() => { props.setAction(i) }}><span key={"spn_" + i} style={{ margin: "10px" }}>{nm}</span></button>
+    })}</div>
+      <div>{Object.keys(skins).map((nm, i) => {
+        return <button style={{ color: props.skin == skins[nm] ? "red" : "", border: "0.5px solid red", borderRadius: "10%", margin: "5px" }} type='button' key={"bms_" + i} onClick={() => { props.setSkin(skins[nm]) }}> <span key={"sknp_" + i} style={{ margin: "10px" }}>{nm}</span></button>
+      })}</div>
+    </>
   )
 }
 
@@ -43,7 +51,7 @@ export default function Page(props) {
 Page.canvas = (props) =>
   <><ambientLight /><directionalLight position={[-5, 5, 5]} castShadow shadow-mapSize={1024} /><group position={[0, -1, 0]}>
     <Suspense fallback={null}>
-      <Model action={props.action} />
+      <Model action={props.action} skin={props.skin} />
     </Suspense>
   </group><mesh rotation={[-0.5 * Math.PI, 0, 0]} position={[0, -1, 0]} receiveShadow>
       <planeBufferGeometry args={[10, 10, 1, 1]} />
