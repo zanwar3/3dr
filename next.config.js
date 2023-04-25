@@ -44,6 +44,12 @@ const nextConfig = {
 
     return config
   },
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false };
+
+    return config;
+  }
+
 }
 
 // manage i18n
@@ -70,6 +76,8 @@ module.exports = (_phase, { defaultConfig }) => {
       finalConfig[key] = wConfig[key]
     }
   })
+
+
 
   return finalConfig
 }

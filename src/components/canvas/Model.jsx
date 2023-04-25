@@ -30,7 +30,7 @@ export default function Model(props) {
         // Reset and fade in animation after an index has been changed
         actions[names[props.action]].reset().fadeIn(0.5).play()
         // In the clean-up phase, fade it out
-        return () => actions[names[props.action]].fadeOut(0.5)
+        return () => (props.action && actions[names[props.action]].fadeOut(0.5))
     }, [props.action, actions, names])
 
     useFrame((state, delta) => {
