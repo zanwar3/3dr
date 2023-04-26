@@ -1,3 +1,4 @@
+/* eslint no-use-before-define: 0 */
 import { useEffect } from 'react';
 import useCapture from 'use-capture';
 

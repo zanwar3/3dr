@@ -9,7 +9,6 @@ import { useScreenshot, createFileName } from "use-react-screenshot";
 
 
 
-var ufc = null;
 const Scene = dynamic(() => import('@/components/canvas/Scene'), { ssr: true })
 //const Recorder = dynamic(() => import('@/components/dom/Recorder'), { ssr: false })
 
